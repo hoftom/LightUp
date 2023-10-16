@@ -1,0 +1,11 @@
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\LightUp!.exe.config
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\LightUp!.exe
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\LightUp!.pdb
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp!.csproj.AssemblyReference.cache
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp_.Properties.Resources.resources
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp!.csproj.GenerateResource.cache
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp!.csproj.CoreCompileInputs.cache
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp!.exe
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp!.pdb
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp_.BoardForm.resources
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp_.MainForm.resources
