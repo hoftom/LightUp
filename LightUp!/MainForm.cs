@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace LightUp_
         private int[,] gameBoard;
         private FlowLayoutPanel flowLayoutPanel;
         private bool[,] buttonState;
+
+        private int wall_value = 100;
+        private int light_value = 50;
 
         public MainForm()
         {
@@ -51,31 +55,44 @@ namespace LightUp_
                         Width = 35,
                         Height = 35,
                         Tag = new Tuple<int, int>(row, col),
+                        Text = gameBoard[row, col].ToString(),
                     };
                     gridButtons[row, col].Click += CellButtonClick;
           
                     flowLayoutPanel1.Controls.Add(gridButtons[row, col]);
 
-                    if (gameBoard[row, col] == -1)
+                    if (gameBoard[row, col] == wall_value)
                     {
                         gridButtons[row, col].BackColor = Color.Black;
                         gridButtons[row, col].ForeColor = Color.White;
-                        gridButtons[row, col].Text = "2";          
+                        gridButtons[row, col].Text = wall_value.ToString();
                         gridButtons[row, col].Enabled = true;
                     }
 
                     gameBoard[row, col] = 0;
                     buttonState[row, col] = false;
 
-                    gameBoard[1, 2] = -1;
-                    gameBoard[2, 1] = -1;
-                    gameBoard[2, 4] = -1;
-                    gameBoard[3, 0] = -1;
-                    gameBoard[3, 1] = -1;
-                    gameBoard[4, 2] = -1;
-                    gameBoard[4, 3] = -1;
+                    gameBoard[1, 1] = wall_value;
+                    gameBoard[2, 1] = wall_value;
+                    gameBoard[1, 4] = wall_value;
+                    gameBoard[1, 5] = wall_value;
+                    gameBoard[5, 1] = wall_value;
+                    gameBoard[5, 2] = wall_value;
+                    gameBoard[5, 5] = wall_value;
+                    gameBoard[4, 5] = wall_value;
 
                 }
+
+                /*
+                gameBoard[1, 0] = light_value;
+                gameBoard[0, 4] = light_value;
+                gameBoard[2, 4] = light_value;
+                gameBoard[4, 2] = light_value;
+                gameBoard[6, 2] = light_value;
+                gameBoard[5, 3] = light_value;
+                gameBoard[3, 5] = light_value;
+                gameBoard[5, 6] = light_value;
+                */
             }
         }
 
@@ -86,82 +103,96 @@ namespace LightUp_
             int row = cellCoordinates.Item1;
             int col = cellCoordinates.Item2;
 
-            if (gameBoard[row, col] == 0)
+            if (gameBoard[row, col] < light_value)
             {
-     
                 IlluminateAdjacentCells(row, col);
-            }
-            else
+                gameBoard[row, col] += light_value;
+                gridButtons[row, col].Text = gameBoard[row, col].ToString();
+                gridButtons[row, col].BackColor = Color.Yellow;
+            } 
+            else if (gameBoard[row, col] >= light_value && gameBoard[row, col] != 100)
             {
                 UnIlluminateAdjacentCells(row, col);
+                gameBoard[row, col] -= 50;
+                gridButtons[row, col].Text = gameBoard[row, col].ToString();
+                if ( gameBoard[row, col] == 0 ) gridButtons[row, col].BackColor = Color.White;
+
             }
         }
 
         private void IlluminateAdjacentCells(int row, int col)
         {
            
-            for (int r = row; r >= 0; r--)
+            for (int r = row - 1; r >= 0; r--)
             {
-                if (gameBoard[r, col] == -1) break;
-                gameBoard[r, col] = 1;
-                gridButtons[r, col].BackColor = Color.Yellow; 
+                if (gameBoard[r, col] == wall_value) break;
+                gameBoard[r, col] += 1;
+                gridButtons[r, col].BackColor = Color.Yellow;
+                gridButtons[r, col].Text = gameBoard[r, col].ToString();
             }
 
 
             for (int r = row + 1; r < gridSize; r++)
             {
-                if (gameBoard[r, col] == -1) break;
-                gameBoard[r, col] = 1;
+                if (gameBoard[r, col] == wall_value) break;
+                gameBoard[r, col] += 1;
                 gridButtons[r, col].BackColor = Color.Yellow;
+                gridButtons[r, col].Text = gameBoard[r, col].ToString();
             }
 
-            for (int c = col; c >= 0; c--)
+            for (int c = col - 1; c >= 0; c--)
             {
-                if (gameBoard[row, c] == -1) break;
-                gameBoard[row, c] = 1;
+                if (gameBoard[row, c] == wall_value) break;
+                gameBoard[row, c] += 1;
                 gridButtons[row, c].BackColor = Color.Yellow;
+                gridButtons[row, c].Text = gameBoard[row, c].ToString();
             }
 
 
             for (int c = col + 1; c < gridSize; c++)
             {
-                if (gameBoard[row, c] == -1) break;
-                gameBoard[row, c] = 1;
+                if (gameBoard[row, c] == wall_value) break;
+                gameBoard[row, c] += 1;
                 gridButtons[row, c].BackColor = Color.Yellow;
+                gridButtons[row, c].Text = gameBoard[row, c].ToString();
             }
 
         }
         private void UnIlluminateAdjacentCells(int row, int col)
         {
-
-            for (int r = row; r >= 0; r--)
+            for (int r = row - 1; r >= 0; r--)
             {
-                if (gameBoard[r, col] == -1) break;
-                gameBoard[r, col] = 0;
-                gridButtons[r, col].BackColor = Color.White;
+                if (gameBoard[r, col] == wall_value) break;
+                gameBoard[r, col] -= 1;
+                gridButtons[r, col].Text = gameBoard[r, col].ToString();
+                if (gameBoard[r, col] == 0) gridButtons[r, col].BackColor = Color.White;
             }
 
-
+            
             for (int r = row + 1; r < gridSize; r++)
             {
-                if (gameBoard[r, col] == -1) break;
-                gameBoard[r, col] = 0;
-                gridButtons[r, col].BackColor = Color.White;
+                if (gameBoard[r, col] == wall_value) break;
+                gameBoard[r, col] -= 1;
+                gridButtons[r, col].Text = gameBoard[r, col].ToString();
+                if (gameBoard[r, col] == 0) gridButtons[r, col].BackColor = Color.White;
             }
 
-            for (int c = col; c >= 0; c--)
+           
+            for (int c = col - 1; c >= 0; c--)
             {
-                if (gameBoard[row, c] == -1) break;
-                gameBoard[row, c] = 0;
-                gridButtons[row, c].BackColor = Color.White;
+                if (gameBoard[row, c] == wall_value) break;
+                gameBoard[row, c] -= 1;
+                gridButtons[row, c].Text = gameBoard[row, c].ToString();
+                if (gameBoard[row, c] == 0) gridButtons[row, c].BackColor = Color.White;
             }
 
-
+            
             for (int c = col + 1; c < gridSize; c++)
             {
-                if (gameBoard[row, c] == -1) break;
-                gameBoard[row, c] = 0;
-                gridButtons[row, c].BackColor = Color.White;
+                if (gameBoard[row, c] == wall_value) break;
+                gameBoard[row, c] -= 1;
+                gridButtons[row, c].Text = gameBoard[row, c].ToString();
+                if (gameBoard[row, c] == 0) gridButtons[row, c].BackColor = Color.White;
             }
 
         }

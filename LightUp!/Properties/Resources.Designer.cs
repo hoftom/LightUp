@@ -163,6 +163,16 @@ namespace LightUp_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lightbulb_35x35 {
+            get {
+                object obj = ResourceManager.GetObject("lightbulb_35x35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lightbulb_logout {
             get {
                 object obj = ResourceManager.GetObject("lightbulb_logout", resourceCulture);

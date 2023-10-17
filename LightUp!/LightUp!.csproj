@@ -125,5 +125,8 @@
   <ItemGroup>
     <None Include="Media\lightbult-rules.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Media\lightbulb-35x35.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
