@@ -97,6 +97,9 @@
             this.btn_rules.TabIndex = 11;
             this.btn_rules.Text = "Szabályzat";
             this.btn_rules.UseVisualStyleBackColor = false;
+            this.btn_rules.Click += new System.EventHandler(this.btn_rules_Click);
+            this.btn_rules.MouseEnter += new System.EventHandler(this.btn_rules_MouseEnter);
+            this.btn_rules.MouseLeave += new System.EventHandler(this.btn_rules_MouseLeave);
             // 
             // btn_Exit
             // 
@@ -117,6 +120,9 @@
             this.btn_Exit.TabIndex = 10;
             this.btn_Exit.Text = "Kilépés";
             this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            this.btn_Exit.MouseEnter += new System.EventHandler(this.btn_Exit_MouseEnter);
+            this.btn_Exit.MouseLeave += new System.EventHandler(this.btn_Exit_MouseLeave);
             // 
             // btn_Start
             // 
@@ -137,6 +143,9 @@
             this.btn_Start.TabIndex = 9;
             this.btn_Start.Text = "Játék";
             this.btn_Start.UseVisualStyleBackColor = false;
+            this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
+            this.btn_Start.MouseEnter += new System.EventHandler(this.btn_Start_MouseEnter);
+            this.btn_Start.MouseLeave += new System.EventHandler(this.btn_Start_MouseLeave);
             // 
             // panel_Level
             // 
@@ -214,6 +223,9 @@
             this.btn_easy.Size = new System.Drawing.Size(224, 193);
             this.btn_easy.TabIndex = 2;
             this.btn_easy.UseVisualStyleBackColor = true;
+            this.btn_easy.Click += new System.EventHandler(this.btn_easy_Click);
+            this.btn_easy.MouseEnter += new System.EventHandler(this.btn_easy_MouseEnter);
+            this.btn_easy.MouseLeave += new System.EventHandler(this.btn_easy_MouseLeave);
             // 
             // btn_adv
             // 
@@ -227,6 +239,8 @@
             this.btn_adv.Size = new System.Drawing.Size(224, 193);
             this.btn_adv.TabIndex = 3;
             this.btn_adv.UseVisualStyleBackColor = true;
+            this.btn_adv.MouseEnter += new System.EventHandler(this.btn_adv_MouseEnter);
+            this.btn_adv.MouseLeave += new System.EventHandler(this.btn_adv_MouseLeave);
             // 
             // btn_exp
             // 
@@ -240,6 +254,8 @@
             this.btn_exp.Size = new System.Drawing.Size(224, 193);
             this.btn_exp.TabIndex = 4;
             this.btn_exp.UseVisualStyleBackColor = true;
+            this.btn_exp.MouseEnter += new System.EventHandler(this.btn_exp_MouseEnter);
+            this.btn_exp.MouseLeave += new System.EventHandler(this.btn_exp_MouseLeave);
             // 
             // label_chooseLevel
             // 
@@ -256,9 +272,9 @@
             this.panel_rules.BackColor = System.Drawing.Color.Transparent;
             this.panel_rules.Controls.Add(this.label2);
             this.panel_rules.Controls.Add(this.label1);
-            this.panel_rules.Location = new System.Drawing.Point(14, 161);
+            this.panel_rules.Location = new System.Drawing.Point(14, 131);
             this.panel_rules.Name = "panel_rules";
-            this.panel_rules.Size = new System.Drawing.Size(672, 318);
+            this.panel_rules.Size = new System.Drawing.Size(672, 348);
             this.panel_rules.TabIndex = 10;
             this.panel_rules.Visible = false;
             // 
@@ -279,7 +295,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(43, 76);
+            this.label1.Location = new System.Drawing.Point(43, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(584, 231);
             this.label1.TabIndex = 0;
@@ -299,6 +315,9 @@
             this.button_back.TabIndex = 14;
             this.button_back.UseVisualStyleBackColor = false;
             this.button_back.Visible = false;
+            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            this.button_back.MouseEnter += new System.EventHandler(this.button_back_MouseEnter);
+            this.button_back.MouseLeave += new System.EventHandler(this.button_back_MouseLeave);
             // 
             // MainForm
             // 
@@ -308,10 +327,10 @@
             this.BackgroundImage = global::LightUp_.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(698, 532);
-            this.Controls.Add(this.panel_Menu);
-            this.Controls.Add(this.panel_Level);
             this.Controls.Add(this.button_back);
+            this.Controls.Add(this.panel_Menu);
             this.Controls.Add(this.label_main);
+            this.Controls.Add(this.panel_Level);
             this.Controls.Add(this.panel_rules);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";

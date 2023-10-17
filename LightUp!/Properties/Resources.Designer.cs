@@ -163,6 +163,26 @@ namespace LightUp_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lightbulb_logout {
+            get {
+                object obj = ResourceManager.GetObject("lightbulb_logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightbulb_off {
+            get {
+                object obj = ResourceManager.GetObject("lightbulb_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lightbulb_on {
             get {
                 object obj = ResourceManager.GetObject("lightbulb_on", resourceCulture);
@@ -173,29 +193,9 @@ namespace LightUp_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap lightbult_logout {
+        internal static System.Drawing.Bitmap lightbulb_rules {
             get {
-                object obj = ResourceManager.GetObject("lightbult_logout", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap lightbult_off {
-            get {
-                object obj = ResourceManager.GetObject("lightbult_off", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap lightbult_rules {
-            get {
-                object obj = ResourceManager.GetObject("lightbult_rules", resourceCulture);
+                object obj = ResourceManager.GetObject("lightbulb_rules", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
