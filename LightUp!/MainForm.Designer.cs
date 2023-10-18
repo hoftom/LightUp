@@ -239,6 +239,7 @@
             this.btn_adv.Size = new System.Drawing.Size(224, 193);
             this.btn_adv.TabIndex = 3;
             this.btn_adv.UseVisualStyleBackColor = true;
+            this.btn_adv.Click += new System.EventHandler(this.btn_adv_Click);
             this.btn_adv.MouseEnter += new System.EventHandler(this.btn_adv_MouseEnter);
             this.btn_adv.MouseLeave += new System.EventHandler(this.btn_adv_MouseLeave);
             // 
@@ -327,10 +328,10 @@
             this.BackgroundImage = global::LightUp_.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(698, 532);
+            this.Controls.Add(this.panel_Level);
             this.Controls.Add(this.button_back);
             this.Controls.Add(this.panel_Menu);
             this.Controls.Add(this.label_main);
-            this.Controls.Add(this.panel_Level);
             this.Controls.Add(this.panel_rules);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
