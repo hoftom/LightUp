@@ -21,12 +21,12 @@ namespace LightUp_
         private bool[,] buttonState;
 
         private int elapsedTime = 0;
-        private int stepsCounter = 0;
+        private int stepsCounter = 8;
         private int light_value = -50;
 
         Label helloLabel = new Label
         {
-            Text = "Lépések:   0",
+            Text = $"Indításhoz lépj egyet!",
             Font = new Font("Kristen ITC", 14.25f),
             ForeColor = Color.Black,
             AutoSize = true,
@@ -34,7 +34,7 @@ namespace LightUp_
 
         Panel panel_Statistics = new Panel
         {
-            Width = 200,
+            Width = 300,
             Height = 200,
             BackColor = Color.Transparent,
             Location = new Point(450, 215),
@@ -65,20 +65,21 @@ namespace LightUp_
             gameBoard = new int[gridSize, gridSize];
             buttonState = new bool[gridSize, gridSize];
 
-            flowLayoutPanel1 = new FlowLayoutPanel
-            {
-                Width = 300,
-                Height = 500,
-                FlowDirection = FlowDirection.LeftToRight,
-                Location = new Point(126, 170),
-                BackColor = Color.Transparent,
-            };
-            Controls.Add(flowLayoutPanel1);
 
-            timer.Interval = 1000; // 1 second
-            timer.Tick += Timer_Tick;
+                flowLayoutPanel1 = new FlowLayoutPanel
+                {
+                    Width = 300,
+                    Height = 500,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    Location = new Point(126, 170),
+                    BackColor = Color.Transparent,
+                };
+                Controls.Add(flowLayoutPanel1);
+
+
+            timer.Interval = 1000;
             
-
+            
 
             panel_Statistics.Controls.Add(labelTimer);;
             panel_Statistics.Controls.Add(helloLabel);
@@ -140,48 +141,58 @@ namespace LightUp_
             labelTimer.Text = $"Idő:   {elapsedTime} s";
         }
 
+
         private void CellButtonClick(object sender, EventArgs e)
         {
+            timer.Start();
+            timer.Tick += Timer_Tick;
+
             Button clickedButton = (Button)sender;
             Tuple<int, int> cellCoordinates = (Tuple<int, int>)clickedButton.Tag;
             int row = cellCoordinates.Item1;
             int col = cellCoordinates.Item2;
+                if (gameBoard[row, col] <= -1 && gameBoard[row, col] > light_value)
+                {
+                    if (stepsCounter > 0)
+                {
+                    IlluminateAdjacentCells(row, col);
+                    gameBoard[row, col] += light_value;
+                    gridButtons[row, col].Text = gameBoard[row, col].ToString();
+                    gridButtons[row, col].BackColor = Color.Yellow;
 
-            if (gameBoard[row, col] <= -1 && gameBoard[row, col] > light_value)
-            {
-                IlluminateAdjacentCells(row, col);
-                gameBoard[row, col] += light_value;
-                gridButtons[row, col].Text = gameBoard[row, col].ToString();
-                gridButtons[row, col].BackColor = Color.Yellow;
-                
-            } 
-            else if (gameBoard[row, col] <= light_value)
-            {
-                UnIlluminateAdjacentCells(row, col);
-                gameBoard[row, col] -= light_value;
-                gridButtons[row, col].Text = gameBoard[row, col].ToString();
-                if ( gameBoard[row, col] == -1 ) gridButtons[row, col].BackColor = Color.White;
-                
+                    stepsCounter--;
+                    helloLabel.Text = $"Lámpák:   {stepsCounter}";
+                }
+                }
+                else if (gameBoard[row, col] <= light_value)
+                {
+                    UnIlluminateAdjacentCells(row, col);
+                    gameBoard[row, col] -= light_value;
+                    gridButtons[row, col].Text = gameBoard[row, col].ToString();
+                    if (gameBoard[row, col] == -1) gridButtons[row, col].BackColor = Color.White;
+                    stepsCounter++;
+                    helloLabel.Text = $"Lámpák:   {stepsCounter}";
+
+                }
+
+
+                if (
+                        gameBoard[0, 4] <= light_value &&
+                        gameBoard[0, 6] <= light_value &&
+                        gameBoard[1, 5] <= light_value &&
+                        gameBoard[2, 0] <= light_value &&
+                        gameBoard[2, 3] <= light_value &&
+                        gameBoard[3, 1] <= light_value &&
+                        gameBoard[5, 2] <= light_value &&
+                        gameBoard[6, 4] <= light_value
+                        )
+                {
+                    timer.Stop();
+                    MessageBox.Show("Nyertél");
+                }
             }
 
-            stepsCounter++;
-            helloLabel.Text = $"Lépések:   {stepsCounter}";
-
-            if (
-                    gameBoard[0, 4] <= light_value &&
-                    gameBoard[0, 6] <= light_value &&
-                    gameBoard[1, 5] <= light_value &&
-                    gameBoard[2, 0] <= light_value &&
-                    gameBoard[2, 3] <= light_value &&
-                    gameBoard[3, 1] <= light_value &&
-                    gameBoard[5, 2] <= light_value &&
-                    gameBoard[6, 4] <= light_value
-                    )
-                {
-                timer.Stop();
-                MessageBox.Show("Nyertél");
-                }
-        }
+            
 
         private void IlluminateAdjacentCells(int row, int col)
         {
@@ -390,7 +401,6 @@ namespace LightUp_
         {
             panel_Level.Visible = false;
             panel_Statistics.Visible = true;
-            timer.Start();
         }
     }
 }
