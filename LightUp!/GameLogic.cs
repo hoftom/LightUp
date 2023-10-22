@@ -25,6 +25,7 @@ namespace LightUp_
         private int elapsedTime = 0;
         private int stepsCounter = 8;
         private int light_value = -50;
+        private bool good = false;
 
 
         private MainForm form;
@@ -47,6 +48,8 @@ namespace LightUp_
             int light_value = -50;
 
             string filePath = "C:/Users//hoffm/OneDrive/Asztali gép/projects/C#/LightUp!/Data/easy.txt";
+            
+
 
             gridButtons = new Button[gridSize, gridSize];
             gameBoard = new int[gridSize, gridSize];
@@ -124,7 +127,7 @@ namespace LightUp_
                     gridButtons[row, col].BackColor = Color.Yellow;
 
                     stepsCounter--;
-                    
+
                 }
             }
             else if (gameBoard[row, col] <= light_value)
@@ -135,21 +138,28 @@ namespace LightUp_
                 if (gameBoard[row, col] == -1) gridButtons[row, col].BackColor = Color.White;
 
                 stepsCounter++;
-                
+
 
             }
 
 
-            if (
-                    gameBoard[0, 4] <= light_value &&
-                    gameBoard[0, 6] <= light_value &&
-                    gameBoard[1, 5] <= light_value &&
-                    gameBoard[2, 0] <= light_value &&
-                    gameBoard[2, 3] <= light_value &&
-                    gameBoard[3, 1] <= light_value &&
-                    gameBoard[5, 2] <= light_value &&
-                    gameBoard[6, 4] <= light_value
-                    )
+            string solvePath = "C:/Users/hoffm/OneDrive/Asztali gép/projects/C#/LightUp!/Data/easy-solve.txt";
+            List<FileData> solveData = SolveData(solvePath);
+            foreach (var item in solveData)
+            {
+                if (gameBoard[item.X, item.Y] <= light_value)
+                {
+                    good = true;
+                    MessageBox.Show("Nyertél");
+                }
+                else
+                {
+                    good = false;
+                    break;
+                }
+
+            }
+            if (good)
             {
                 timer.Stop();
                 MessageBox.Show("Nyertél");
@@ -242,29 +252,57 @@ namespace LightUp_
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     string line;
-                    while ((line = reader.ReadLine()) != null)
                     {
-                        string[] parts = line.Split(';');
-                        if (parts.Length == 3 && int.TryParse(parts[0], out int x) && int.TryParse(parts[1], out int y) && int.TryParse(parts[2], out int value))
+                        while ((line = reader.ReadLine()) != null)
                         {
-                            FileData data = new FileData { X = x, Y = y, Value = value };
-                            fileDataList.Add(data);
+                            string[] parts = line.Split(';');
+                            if (parts.Length == 3 && int.TryParse(parts[0], out int x) && int.TryParse(parts[1], out int y) && int.TryParse(parts[2], out int value))
+                            {
+                                FileData data = new FileData { X = x, Y = y, Value = value };
+                                fileDataList.Add(data);
+                            }
                         }
                     }
+
                 }
             }
             else
             {
                 Console.WriteLine("The file does not exist.");
             }
-
-            foreach (var line in fileDataList)
-            {
-                Console.WriteLine(line);
-            }
             return fileDataList;
         }
 
+        private List<FileData> SolveData(string solvePath)
+        {
+
+            List<FileData> SolveDataList = new List<FileData>();
+
+            if (File.Exists(solvePath))
+            {
+                using (StreamReader reader = new StreamReader(solvePath))
+                {
+                    string line;
+                    {
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            string[] parts = line.Split(';');
+                            if (parts.Length == 3 && int.TryParse(parts[0], out int x) && int.TryParse(parts[1], out int y) && int.TryParse(parts[2], out int value))
+                            {
+                                FileData data = new FileData { X = x, Y = y, Value = value };
+                                SolveDataList.Add(data);
+                            }
+                        }
+
+                    }
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("The file does not exist.");
+            }
+            return SolveDataList;
         }
     }
 }
