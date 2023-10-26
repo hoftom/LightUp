@@ -16,19 +16,34 @@ namespace LightUp_
 {
     public class GameManager
     {
-        private Timer timer = new Timer();
-        private int gridSize = 7;
+        protected virtual int GetPanelWidth { get; }
+        protected virtual int GetPanelHeight { get; }
+        protected virtual Point GetPanelLocation
+        {
+            get { return new Point(0, 0); }
+        }
+
+
+        protected virtual int GetButtonWidth { get; }
+        protected virtual int GetButtonHeight { get; }
+
+
+        public string solvePath;
+        public string filePath;
+
+        public int gridSize;
         private Button[,] gridButtons;
-        private int[,] gameBoard;
+        private int[,] gameboard;
         private bool[,] buttonState;
 
-        private int elapsedTime = 0;
-        private int stepsCounter = 8;
+        private int stepsCounter = 0;
         private int light_value = -50;
-        private bool good = false;
 
 
         private MainForm form;
+
+
+
         public class FileData
         {
             public int X { get; set; }
@@ -43,73 +58,72 @@ namespace LightUp_
 
         public void InitializeGame()
         {
-            int elapsedTime = 0;
-            int stepsCounter = 8;
-            int light_value = -50;
-
-            string filePath = "C:/Users//hoffm/OneDrive/Asztali gép/projects/C#/LightUp!/Data/easy.txt";
-            
-
-
             gridButtons = new Button[gridSize, gridSize];
-            gameBoard = new int[gridSize, gridSize];
+            gameboard = new int[gridSize, gridSize];
             buttonState = new bool[gridSize, gridSize];
 
             FlowLayoutPanel flowLayoutPanel1 = new FlowLayoutPanel
             {
-                Width = 300,
-                Height = 560,
+                Width = GetPanelWidth,
+                Height = GetPanelHeight,
+                Location = GetPanelLocation,
+
                 FlowDirection = FlowDirection.LeftToRight,
-                Location = new Point(126, 170),
                 BackColor = Color.Transparent,
             };
+
+            SetupGameboardLogic(flowLayoutPanel1);
+
             form.Controls.Add(flowLayoutPanel1);
 
+
+        }
+        protected virtual void SetupGameboardLogic(FlowLayoutPanel flowLayoutPanel)
+        {
             for (int row = 0; row < gridSize; row++)
             {
                 for (int col = 0; col < gridSize; col++)
                 {
-                    gameBoard[row, col] = -1;
+                    gameboard[row, col] = -1;
 
                     gridButtons[row, col] = new Button
                     {
-                        Width = 35,
-                        Height = 35,
+                        Width = GetButtonWidth,
+                        Height = GetButtonHeight,
                         Tag = new Tuple<int, int>(row, col),
-                        Text = gameBoard[row, col].ToString(),
+                        Text = gameboard[row, col].ToString(),
                     };
                     gridButtons[row, col].Click += CellButtonClick;
 
-                    flowLayoutPanel1.Controls.Add(gridButtons[row, col]);
+                    flowLayoutPanel.Controls.Add(gridButtons[row, col]);
 
 
                     List<FileData> data = ReadData(filePath);
 
                     foreach (var item in data)
                     {
-                        gameBoard[item.X, item.Y] = item.Value;
+                        gameboard[item.X, item.Y] = item.Value;
                     }
 
-                    if (gameBoard[row, col] == 100)
+                    if (gameboard[row, col] == 100)
                     {
                         gridButtons[row, col].BackColor = Color.Black;
                         gridButtons[row, col].Enabled = false;
                     }
 
-                    if (gameBoard[row, col] >= 0)
+                    if (gameboard[row, col] >= 0)
                     {
                         gridButtons[row, col].BackColor = Color.Black;
                         gridButtons[row, col].ForeColor = Color.White;
-                        gridButtons[row, col].Text = gameBoard[row, col].ToString();
+                        gridButtons[row, col].Text = gameboard[row, col].ToString();
                     }
 
 
-                    gameBoard[row, col] = -1;
+                    gameboard[row, col] = -1;
                     buttonState[row, col] = false;
                 }
             }
         }
-
         public void CellButtonClick(object sender, EventArgs e)
         {;
 
@@ -117,89 +131,48 @@ namespace LightUp_
             Tuple<int, int> cellCoordinates = (Tuple<int, int>)clickedButton.Tag;
             int row = cellCoordinates.Item1;
             int col = cellCoordinates.Item2;
-            if (gameBoard[row, col] <= -1 && gameBoard[row, col] > light_value)
-            {
-                if (stepsCounter > 0)
-                {
-                    IlluminateAdjacentCells(row, col);
-                    gameBoard[row, col] += light_value;
-                    gridButtons[row, col].Text = gameBoard[row, col].ToString();
-                    gridButtons[row, col].BackColor = Color.Yellow;
 
-                    stepsCounter--;
+            CheckAdjacentCells(row, col);
 
-                }
-            }
-            else if (gameBoard[row, col] <= light_value)
-            {
-                UnIlluminateAdjacentCells(row, col);
-                gameBoard[row, col] -= light_value;
-                gridButtons[row, col].Text = gameBoard[row, col].ToString();
-                if (gameBoard[row, col] == -1) gridButtons[row, col].BackColor = Color.White;
-
-                stepsCounter++;
+            CheckGoodResult(solvePath);
 
 
-            }
-
-
-            string solvePath = "C:/Users/hoffm/OneDrive/Asztali gép/projects/C#/LightUp!/Data/easy-solve.txt";
-            List<FileData> solveData = SolveData(solvePath);
-            foreach (var item in solveData)
-            {
-                if (gameBoard[item.X, item.Y] <= light_value)
-                {
-                    good = true;
-                    MessageBox.Show("Nyertél");
-                }
-                else
-                {
-                    good = false;
-                    break;
-                }
-
-            }
-            if (good)
-            {
-                timer.Stop();
-                MessageBox.Show("Nyertél");
-            }
         }
         private void IlluminateAdjacentCells(int row, int col)
         {
 
             for (int r = row - 1; r >= 0; r--)
             {
-                if (gameBoard[r, col] > -1) break;
-                gameBoard[r, col] -= 1;
+                if (gameboard[r, col] > -1) break;
+                gameboard[r, col] -= 1;
                 gridButtons[r, col].BackColor = Color.Yellow;
-                gridButtons[r, col].Text = gameBoard[r, col].ToString();
+                gridButtons[r, col].Text = gameboard[r, col].ToString();
             }
 
 
             for (int r = row + 1; r < gridSize; r++)
             {
-                if (gameBoard[r, col] > -1) break;
-                gameBoard[r, col] -= 1;
+                if (gameboard[r, col] > -1) break;
+                gameboard[r, col] -= 1;
                 gridButtons[r, col].BackColor = Color.Yellow;
-                gridButtons[r, col].Text = gameBoard[r, col].ToString();
+                gridButtons[r, col].Text = gameboard[r, col].ToString();
             }
 
             for (int c = col - 1; c >= 0; c--)
             {
-                if (gameBoard[row, c] > -1) break;
-                gameBoard[row, c] -= 1;
+                if (gameboard[row, c] > -1) break;
+                gameboard[row, c] -= 1;
                 gridButtons[row, c].BackColor = Color.Yellow;
-                gridButtons[row, c].Text = gameBoard[row, c].ToString();
+                gridButtons[row, c].Text = gameboard[row, c].ToString();
             }
 
 
             for (int c = col + 1; c < gridSize; c++)
             {
-                if (gameBoard[row, c] > -1) break;
-                gameBoard[row, c] -= 1;
+                if (gameboard[row, c] > -1) break;
+                gameboard[row, c] -= 1;
                 gridButtons[row, c].BackColor = Color.Yellow;
-                gridButtons[row, c].Text = gameBoard[row, c].ToString();
+                gridButtons[row, c].Text = gameboard[row, c].ToString();
             }
 
         }
@@ -207,40 +180,86 @@ namespace LightUp_
         {
             for (int r = row - 1; r >= 0; r--)
             {
-                if (gameBoard[r, col] > -1) break;
-                gameBoard[r, col] += 1;
-                gridButtons[r, col].Text = gameBoard[r, col].ToString();
-                if (gameBoard[r, col] == -1) gridButtons[r, col].BackColor = Color.White;
+                if (gameboard[r, col] > -1) break;
+                gameboard[r, col] += 1;
+                gridButtons[r, col].Text = gameboard[r, col].ToString();
+                if (gameboard[r, col] == -1) gridButtons[r, col].BackColor = Color.White;
             }
 
 
             for (int r = row + 1; r < gridSize; r++)
             {
-                if (gameBoard[r, col] > -1) break;
-                gameBoard[r, col] += 1;
-                gridButtons[r, col].Text = gameBoard[r, col].ToString();
-                if (gameBoard[r, col] == -1) gridButtons[r, col].BackColor = Color.White;
+                if (gameboard[r, col] > -1) break;
+                gameboard[r, col] += 1;
+                gridButtons[r, col].Text = gameboard[r, col].ToString();
+                if (gameboard[r, col] == -1) gridButtons[r, col].BackColor = Color.White;
             }
 
 
             for (int c = col - 1; c >= 0; c--)
             {
-                if (gameBoard[row, c] > -1) break;
-                gameBoard[row, c] += 1;
-                gridButtons[row, c].Text = gameBoard[row, c].ToString();
-                if (gameBoard[row, c] == -1) gridButtons[row, c].BackColor = Color.White;
+                if (gameboard[row, c] > -1) break;
+                gameboard[row, c] += 1;
+                gridButtons[row, c].Text = gameboard[row, c].ToString();
+                if (gameboard[row, c] == -1) gridButtons[row, c].BackColor = Color.White;
             }
 
 
             for (int c = col + 1; c < gridSize; c++)
             {
-                if (gameBoard[row, c] > -1) break;
-                gameBoard[row, c] += 1;
-                gridButtons[row, c].Text = gameBoard[row, c].ToString();
-                if (gameBoard[row, c] == -1) gridButtons[row, c].BackColor = Color.White;
+                if (gameboard[row, c] > -1) break;
+                gameboard[row, c] += 1;
+                gridButtons[row, c].Text = gameboard[row, c].ToString();
+                if (gameboard[row, c] == -1) gridButtons[row, c].BackColor = Color.White;
             }
 
         }
+        private void CheckAdjacentCells(int row, int col)
+        {
+            if (gameboard[row, col] <= -1 && gameboard[row, col] > light_value)
+            {
+                if (stepsCounter > 0)
+                {
+                    IlluminateAdjacentCells(row, col);
+                    gameboard[row, col] += light_value;
+                    gridButtons[row, col].Text = gameboard[row, col].ToString();
+                    gridButtons[row, col].BackColor = Color.Yellow;
+
+                    stepsCounter--;
+                }
+            }
+            else if (gameboard[row, col] <= light_value)
+            {
+                UnIlluminateAdjacentCells(row, col);
+                gameboard[row, col] -= light_value;
+                gridButtons[row, col].Text = gameboard[row, col].ToString();
+                if (gameboard[row, col] == -1) gridButtons[row, col].BackColor = Color.White;
+
+                stepsCounter++;
+            }
+        }
+        private void CheckGoodResult(string solvePath)
+        {
+            List<FileData> goodData = SolveData(solvePath);
+            bool good = false;
+            foreach (var item in goodData)
+            {
+                if (gameboard[item.X, item.Y] < -50)
+                {
+                    good = true;
+                }
+                else
+                {
+                    good = false;
+                    break;
+                }
+            }
+            if (good == true)
+            {
+                MessageBox.Show("Nyertél");
+            }
+        }
+ 
 
         private List<FileData> ReadData(string filePath)
         {
@@ -272,10 +291,8 @@ namespace LightUp_
             }
             return fileDataList;
         }
-
         private List<FileData> SolveData(string solvePath)
         {
-
             List<FileData> SolveDataList = new List<FileData>();
 
             if (File.Exists(solvePath))
@@ -286,10 +303,11 @@ namespace LightUp_
                     {
                         while ((line = reader.ReadLine()) != null)
                         {
+                            stepsCounter++;
                             string[] parts = line.Split(';');
-                            if (parts.Length == 3 && int.TryParse(parts[0], out int x) && int.TryParse(parts[1], out int y) && int.TryParse(parts[2], out int value))
+                            if (parts.Length == 2 && int.TryParse(parts[0], out int x) && int.TryParse(parts[1], out int y))
                             {
-                                FileData data = new FileData { X = x, Y = y, Value = value };
+                                FileData data = new FileData { X = x, Y = y };
                                 SolveDataList.Add(data);
                             }
                         }
@@ -302,6 +320,7 @@ namespace LightUp_
             {
                 Console.WriteLine("The file does not exist.");
             }
+
             return SolveDataList;
         }
     }

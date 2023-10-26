@@ -14,17 +14,9 @@ namespace LightUp_
 {
     public partial class MainForm : Form
     {
-        private Timer timer = new Timer();
-        private int gridSize = 7; 
-        private Button[,] gridButtons;
-        private int[,] gameBoard;
-        private bool[,] buttonState;
 
-       private int elapsedTime = 0;
-       private int stepsCounter = 8;
-       private int light_value = -50;
-
-        private GameManager gameManager;
+        private EasyLevel easyLevel;
+        private MediumLevel mediumLevel;
 
        /* Label helloLabel = new Label
         {
@@ -50,18 +42,7 @@ namespace LightUp_
         {
             InitializeComponent();
 
-            gameManager = new GameManager(this);
-            gameManager.InitializeGame();
-
         }
-
-
-
-        
-
-            
-
- 
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
@@ -183,15 +164,23 @@ namespace LightUp_
         private void btn_easy_Click(object sender, EventArgs e)
         {
             panel_Level.Visible = false;
+
+            easyLevel = new EasyLevel(this);
+            easyLevel.InitializeGame();
+            flowLayoutPanel1.Visible = true;
             //panel_Statistics.Visible = true;
             //timer.Start();
-            flowLayoutPanel1.Visible = true;
-            
+
+
         }
 
         private void btn_adv_Click(object sender, EventArgs e)
         {
             panel_Level.Visible = false;
+            mediumLevel = new MediumLevel(this);
+            mediumLevel.InitializeGame();
+            flowLayoutPanel1.Visible = true;
+
             //panel_Statistics.Visible = true;
         }
     }
