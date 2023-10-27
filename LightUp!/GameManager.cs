@@ -36,12 +36,12 @@ namespace LightUp_
         private int[,] gameboard;
         private bool[,] buttonState;
 
-        private int stepsCounter = 0;
+        private int stepsCounter;
         private int light_value = -50;
 
 
         private MainForm form;
-
+        private List<FileData> SolveDataList;
 
 
         public class FileData
@@ -53,11 +53,12 @@ namespace LightUp_
 
         public GameManager(MainForm form)
         {
-            this.form = form;
+            this.form = form;        
         }
 
         public void InitializeGame()
         {
+
             gridButtons = new Button[gridSize, gridSize];
             gameboard = new int[gridSize, gridSize];
             buttonState = new bool[gridSize, gridSize];
@@ -74,10 +75,24 @@ namespace LightUp_
 
             SetupGameboardLogic(flowLayoutPanel1);
 
+            SolveDataList = LoadSolutionData(solvePath);
+
             form.Controls.Add(flowLayoutPanel1);
-
-
         }
+
+        public void CellButtonClick(object sender, EventArgs e)
+        {
+
+            Button clickedButton = (Button)sender;
+            Tuple<int, int> cellCoordinates = (Tuple<int, int>)clickedButton.Tag;
+            int row = cellCoordinates.Item1;
+            int col = cellCoordinates.Item2;
+
+            CheckAdjacentCells(row, col);
+
+            CheckGoodResult(SolveDataList);
+        }
+
         protected virtual void SetupGameboardLogic(FlowLayoutPanel flowLayoutPanel)
         {
             for (int row = 0; row < gridSize; row++)
@@ -98,7 +113,7 @@ namespace LightUp_
                     flowLayoutPanel.Controls.Add(gridButtons[row, col]);
 
 
-                    List<FileData> data = ReadData(filePath);
+                    List<FileData> data = LoadProblemData(filePath);
 
                     foreach (var item in data)
                     {
@@ -123,20 +138,6 @@ namespace LightUp_
                     buttonState[row, col] = false;
                 }
             }
-        }
-        public void CellButtonClick(object sender, EventArgs e)
-        {;
-
-            Button clickedButton = (Button)sender;
-            Tuple<int, int> cellCoordinates = (Tuple<int, int>)clickedButton.Tag;
-            int row = cellCoordinates.Item1;
-            int col = cellCoordinates.Item2;
-
-            CheckAdjacentCells(row, col);
-
-            CheckGoodResult(solvePath);
-
-
         }
         private void IlluminateAdjacentCells(int row, int col)
         {
@@ -238,30 +239,24 @@ namespace LightUp_
                 stepsCounter++;
             }
         }
-        private void CheckGoodResult(string solvePath)
+        private void CheckGoodResult(List<FileData> SolveDataList)
         {
-            List<FileData> goodData = SolveData(solvePath);
-            bool good = false;
-            foreach (var item in goodData)
+            bool good = true;
+            foreach (var item in SolveDataList)
             {
-                if (gameboard[item.X, item.Y] < -50)
-                {
-                    good = true;
-                }
-                else
+                if (gameboard[item.X, item.Y] >= light_value)
                 {
                     good = false;
                     break;
                 }
             }
-            if (good == true)
+            if (good)
             {
-                MessageBox.Show("Nyertél");
+                MessageBox.Show("Helyes kitöltés!");
             }
         }
- 
 
-        private List<FileData> ReadData(string filePath)
+        private List<FileData> LoadProblemData(string filePath)
         {
 
             List<FileData> fileDataList = new List<FileData>();
@@ -287,11 +282,11 @@ namespace LightUp_
             }
             else
             {
-                Console.WriteLine("The file does not exist.");
+                Console.WriteLine("The problem file does not exist.");
             }
             return fileDataList;
         }
-        private List<FileData> SolveData(string solvePath)
+        private List<FileData> LoadSolutionData(string solvePath)
         {
             List<FileData> SolveDataList = new List<FileData>();
 
@@ -318,7 +313,7 @@ namespace LightUp_
             }
             else
             {
-                Console.WriteLine("The file does not exist.");
+                Console.WriteLine("The solution file does not exist.");
             }
 
             return SolveDataList;

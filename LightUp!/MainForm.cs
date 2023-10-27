@@ -36,8 +36,6 @@ namespace LightUp_
 
         };*/
 
-
-
         public MainForm()
         {
             InitializeComponent();
