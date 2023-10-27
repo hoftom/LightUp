@@ -74,11 +74,15 @@
             this.panel_Menu.Controls.Add(this.btn_Exit);
             this.panel_Menu.Controls.Add(this.btn_Start);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.panel_Menu.Location = new System.Drawing.Point(126, 131);
 =======
             this.panel_Menu.Location = new System.Drawing.Point(168, 161);
             this.panel_Menu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.panel_Menu.Location = new System.Drawing.Point(126, 131);
+>>>>>>> parent of 0519fcb (27/10)
             this.panel_Menu.Name = "panel_Menu";
             this.panel_Menu.Size = new System.Drawing.Size(449, 389);
             this.panel_Menu.TabIndex = 8;
@@ -97,11 +101,15 @@
             this.btn_rules.Image = ((System.Drawing.Image)(resources.GetObject("btn_rules.Image")));
             this.btn_rules.ImageAlign = System.Drawing.ContentAlignment.TopRight;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_rules.Location = new System.Drawing.Point(62, 169);
 =======
             this.btn_rules.Location = new System.Drawing.Point(83, 208);
             this.btn_rules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_rules.Location = new System.Drawing.Point(62, 169);
+>>>>>>> parent of 0519fcb (27/10)
             this.btn_rules.Name = "btn_rules";
             this.btn_rules.Size = new System.Drawing.Size(325, 85);
             this.btn_rules.TabIndex = 11;
@@ -125,11 +133,15 @@
             this.btn_Exit.Image = ((System.Drawing.Image)(resources.GetObject("btn_Exit.Image")));
             this.btn_Exit.ImageAlign = System.Drawing.ContentAlignment.TopRight;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_Exit.Location = new System.Drawing.Point(95, 288);
 =======
             this.btn_Exit.Location = new System.Drawing.Point(127, 354);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_Exit.Location = new System.Drawing.Point(95, 288);
+>>>>>>> parent of 0519fcb (27/10)
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(267, 70);
             this.btn_Exit.TabIndex = 10;
@@ -153,11 +165,15 @@
             this.btn_Start.Image = ((System.Drawing.Image)(resources.GetObject("btn_Start.Image")));
             this.btn_Start.ImageAlign = System.Drawing.ContentAlignment.TopRight;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_Start.Location = new System.Drawing.Point(62, 54);
 =======
             this.btn_Start.Location = new System.Drawing.Point(83, 66);
             this.btn_Start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_Start.Location = new System.Drawing.Point(62, 54);
+>>>>>>> parent of 0519fcb (27/10)
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.Size = new System.Drawing.Size(325, 85);
             this.btn_Start.TabIndex = 9;
@@ -173,11 +189,15 @@
             this.panel_Level.Controls.Add(this.flowLayoutPanel1);
             this.panel_Level.Controls.Add(this.label_chooseLevel);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.panel_Level.Location = new System.Drawing.Point(0, 146);
 =======
             this.panel_Level.Location = new System.Drawing.Point(0, 180);
             this.panel_Level.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.panel_Level.Location = new System.Drawing.Point(0, 146);
+>>>>>>> parent of 0519fcb (27/10)
             this.panel_Level.Name = "panel_Level";
             this.panel_Level.Size = new System.Drawing.Size(696, 322);
             this.panel_Level.TabIndex = 9;
@@ -191,11 +211,15 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_adv);
             this.flowLayoutPanel1.Controls.Add(this.btn_exp);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 64);
 =======
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 79);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 64);
+>>>>>>> parent of 0519fcb (27/10)
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(693, 242);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -206,11 +230,15 @@
             this.flowLayoutPanel2.Controls.Add(this.label_adv);
             this.flowLayoutPanel2.Controls.Add(this.label_exp);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
 =======
             this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+>>>>>>> parent of 0519fcb (27/10)
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(680, 26);
             this.flowLayoutPanel2.TabIndex = 5;
@@ -254,11 +282,15 @@
             this.btn_easy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_easy.Image = ((System.Drawing.Image)(resources.GetObject("btn_easy.Image")));
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_easy.Location = new System.Drawing.Point(3, 35);
 =======
             this.btn_easy.Location = new System.Drawing.Point(4, 44);
             this.btn_easy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_easy.Location = new System.Drawing.Point(3, 35);
+>>>>>>> parent of 0519fcb (27/10)
             this.btn_easy.Name = "btn_easy";
             this.btn_easy.Size = new System.Drawing.Size(224, 193);
             this.btn_easy.TabIndex = 2;
@@ -275,11 +307,15 @@
             this.btn_adv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_adv.Image = ((System.Drawing.Image)(resources.GetObject("btn_adv.Image")));
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_adv.Location = new System.Drawing.Point(233, 35);
 =======
             this.btn_adv.Location = new System.Drawing.Point(311, 44);
             this.btn_adv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_adv.Location = new System.Drawing.Point(233, 35);
+>>>>>>> parent of 0519fcb (27/10)
             this.btn_adv.Name = "btn_adv";
             this.btn_adv.Size = new System.Drawing.Size(224, 193);
             this.btn_adv.TabIndex = 3;
@@ -296,11 +332,15 @@
             this.btn_exp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_exp.Image = ((System.Drawing.Image)(resources.GetObject("btn_exp.Image")));
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_exp.Location = new System.Drawing.Point(463, 35);
 =======
             this.btn_exp.Location = new System.Drawing.Point(618, 44);
             this.btn_exp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_exp.Location = new System.Drawing.Point(463, 35);
+>>>>>>> parent of 0519fcb (27/10)
             this.btn_exp.Name = "btn_exp";
             this.btn_exp.Size = new System.Drawing.Size(224, 193);
             this.btn_exp.TabIndex = 4;
@@ -324,11 +364,15 @@
             this.panel_rules.Controls.Add(this.label2);
             this.panel_rules.Controls.Add(this.label1);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.panel_rules.Location = new System.Drawing.Point(14, 131);
 =======
             this.panel_rules.Location = new System.Drawing.Point(19, 161);
             this.panel_rules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.panel_rules.Location = new System.Drawing.Point(14, 131);
+>>>>>>> parent of 0519fcb (27/10)
             this.panel_rules.Name = "panel_rules";
             this.panel_rules.Size = new System.Drawing.Size(672, 348);
             this.panel_rules.TabIndex = 10;
@@ -366,11 +410,15 @@
             this.button_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_back.Image = ((System.Drawing.Image)(resources.GetObject("button_back.Image")));
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.button_back.Location = new System.Drawing.Point(615, 458);
 =======
             this.button_back.Location = new System.Drawing.Point(820, 564);
             this.button_back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.button_back.Location = new System.Drawing.Point(615, 458);
+>>>>>>> parent of 0519fcb (27/10)
             this.button_back.Name = "button_back";
             this.button_back.Size = new System.Drawing.Size(75, 62);
             this.button_back.TabIndex = 14;
@@ -388,10 +436,14 @@
             this.BackgroundImage = global::LightUp_.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(698, 532);
 =======
             this.ClientSize = new System.Drawing.Size(931, 655);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.ClientSize = new System.Drawing.Size(698, 532);
+>>>>>>> parent of 0519fcb (27/10)
             this.Controls.Add(this.panel_Level);
             this.Controls.Add(this.button_back);
             this.Controls.Add(this.panel_Menu);
@@ -399,9 +451,12 @@
             this.Controls.Add(this.panel_rules);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+>>>>>>> parent of 0519fcb (27/10)
             this.Name = "MainForm";
             this.Text = "LightUp!";
             this.Resize += new System.EventHandler(this.MainForm_Resize);

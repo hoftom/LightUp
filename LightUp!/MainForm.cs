@@ -167,10 +167,15 @@ namespace LightUp_
             easyLevel.InitializeGame();
             flowLayoutPanel1.Visible = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             //panel_Statistics.Visible = true;
             //timer.Start();
 =======
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            //panel_Statistics.Visible = true;
+            //timer.Start();
+>>>>>>> parent of 0519fcb (27/10)
 
 
         }
@@ -189,8 +194,8 @@ namespace LightUp_
             mediumLevel = new MediumLevel(this);
             mediumLevel.InitializeGame();
             flowLayoutPanel1.Visible = true;
-        }
 
+<<<<<<< HEAD
         private void btn_exp_Click(object sender, EventArgs e)
         {
             panel_Level.Visible = false;
@@ -198,6 +203,9 @@ namespace LightUp_
             hardLevel.InitializeGame();
             flowLayoutPanel1.Visible = true;
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            //panel_Statistics.Visible = true;
+>>>>>>> parent of 0519fcb (27/10)
         }
     }
 }
