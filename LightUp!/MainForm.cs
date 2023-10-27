@@ -166,20 +166,38 @@ namespace LightUp_
             easyLevel = new EasyLevel(this);
             easyLevel.InitializeGame();
             flowLayoutPanel1.Visible = true;
+<<<<<<< HEAD
             //panel_Statistics.Visible = true;
             //timer.Start();
+=======
+>>>>>>> parent of 5f0b405 (28/10)
 
 
         }
 
         private void btn_adv_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             panel_Level.Visible = false;
             mediumLevel = new MediumLevel(this);
             mediumLevel.InitializeGame();
             flowLayoutPanel1.Visible = true;
 
             //panel_Statistics.Visible = true;
+=======
+            panel_Level.Visible = false;
+            mediumLevel = new MediumLevel(this);
+            mediumLevel.InitializeGame();
+            flowLayoutPanel1.Visible = true;
+        }
+
+        private void btn_exp_Click(object sender, EventArgs e)
+        {
+            panel_Level.Visible = false;
+            hardLevel = new HardLevel(this);
+            hardLevel.InitializeGame();
+            flowLayoutPanel1.Visible = true;
+>>>>>>> parent of 5f0b405 (28/10)
         }
     }
 }
