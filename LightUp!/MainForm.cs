@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using Application = System.Windows.Forms.Application;
+using Label = System.Windows.Forms.Label;
 
 namespace LightUp_
 {
@@ -17,29 +22,11 @@ namespace LightUp_
 
         private EasyLevel easyLevel;
         private MediumLevel mediumLevel;
-
-       /* Label helloLabel = new Label
-        {
-            Text = $"Indításhoz lépj egyet!",
-            Font = new Font("Kristen ITC", 14.25f),
-            ForeColor = Color.Black,
-            AutoSize = true,
-        };
-
-        Panel panel_Statistics = new Panel
-        {
-            Width = 300,
-            Height = 200,
-            BackColor = Color.Transparent,
-            Location = new Point(450, 215),
-            Visible = false,
-
-        };*/
+        private HardLevel hardLevel;
 
         public MainForm()
         {
             InitializeComponent();
-
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -69,13 +56,6 @@ namespace LightUp_
             Application.Exit();
         }
 
-        private void button_back_Click(object sender, EventArgs e)
-        {
-            panel_Menu.Visible = true;
-            panel_rules.Visible = false;
-            panel_Level.Visible = false;
-            button_back.Visible = false;
-        }
 
         private void btn_Start_MouseEnter(object sender, EventArgs e)
         {
@@ -161,25 +141,30 @@ namespace LightUp_
 
         private void btn_easy_Click(object sender, EventArgs e)
         {
-            panel_Level.Visible = false;
-
-            easyLevel = new EasyLevel(this);
-            easyLevel.InitializeGame();
-            flowLayoutPanel1.Visible = true;
-            //panel_Statistics.Visible = true;
-            //timer.Start();
-
-
+            LoadInLevel(new EasyLevel(this));
         }
 
         private void btn_adv_Click(object sender, EventArgs e)
         {
-            panel_Level.Visible = false;
-            mediumLevel = new MediumLevel(this);
-            mediumLevel.InitializeGame();
-            flowLayoutPanel1.Visible = true;
+            LoadInLevel(new MediumLevel(this));
+        }
 
-            //panel_Statistics.Visible = true;
+        private void btn_exp_Click(object sender, EventArgs e)
+        {
+            LoadInLevel(new HardLevel(this));
+        }
+        private void LoadInLevel(GameManager level)
+        {
+            panel_Level.Visible = false;
+            level.InitializeGame();
+            flowLayoutPanel1.Visible = true;
+        }
+
+        private void button_back_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+            Process.Start(Application.ExecutablePath);
         }
     }
 }
