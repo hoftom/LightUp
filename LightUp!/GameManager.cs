@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -93,7 +92,6 @@ namespace LightUp_
 
             CheckGoodResult(SolveDataList);
         }
-
 
         protected virtual void SetupGameboardLogic(FlowLayoutPanel flowLayoutPanel)
         {
