@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using Application = System.Windows.Forms.Application;
+using Label = System.Windows.Forms.Label;
 
 namespace LightUp_
 {
@@ -51,13 +56,6 @@ namespace LightUp_
             Application.Exit();
         }
 
-        private void button_back_Click(object sender, EventArgs e)
-        {
-            panel_Menu.Visible = true;
-            panel_rules.Visible = false;
-            panel_Level.Visible = false;
-            button_back.Visible = false;
-        }
 
         private void btn_Start_MouseEnter(object sender, EventArgs e)
         {
@@ -143,29 +141,30 @@ namespace LightUp_
 
         private void btn_easy_Click(object sender, EventArgs e)
         {
-            panel_Level.Visible = false;
-
-            easyLevel = new EasyLevel(this);
-            easyLevel.InitializeGame();
-            flowLayoutPanel1.Visible = true;
-
-
+            LoadInLevel(new EasyLevel(this));
         }
 
         private void btn_adv_Click(object sender, EventArgs e)
         {
-            panel_Level.Visible = false;
-            mediumLevel = new MediumLevel(this);
-            mediumLevel.InitializeGame();
-            flowLayoutPanel1.Visible = true;
+            LoadInLevel(new MediumLevel(this));
         }
 
         private void btn_exp_Click(object sender, EventArgs e)
         {
+            LoadInLevel(new HardLevel(this));
+        }
+        private void LoadInLevel(GameManager level)
+        {
             panel_Level.Visible = false;
-            hardLevel = new HardLevel(this);
-            hardLevel.InitializeGame();
+            level.InitializeGame();
             flowLayoutPanel1.Visible = true;
+        }
+
+        private void button_back_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+            Process.Start(Application.ExecutablePath);
         }
     }
 }

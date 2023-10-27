@@ -94,6 +94,7 @@ namespace LightUp_
             CheckGoodResult(SolveDataList);
         }
 
+
         protected virtual void SetupGameboardLogic(FlowLayoutPanel flowLayoutPanel)
         {
             for (int row = 0; row < gridSize; row++)
