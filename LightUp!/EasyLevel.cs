@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +12,8 @@ namespace LightUp_
     {
         public EasyLevel(MainForm form) : base(form)
         {
-            string mainDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            solvePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/easy-solve.txt";
-            filePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/easy.txt";
+            solvePath = "C:/Users/hoffm/OneDrive/Asztali gép/projects/C#/LightUp!/Data/easy-solve.txt";
+            filePath = "C:/Users//hoffm/OneDrive/Asztali gép/projects/C#/LightUp!/Data/easy.txt";
 
             gridSize = 7;
         }

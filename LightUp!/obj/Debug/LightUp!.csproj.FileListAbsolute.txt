@@ -8,13 +8,3 @@ C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\Lig
 C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp!.exe
 C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp!.pdb
 C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Debug\LightUp_.MainForm.resources
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\bin\Debug\LightUp!.exe.config
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\bin\Debug\LightUp!.exe
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\bin\Debug\LightUp!.pdb
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.csproj.AssemblyReference.cache
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp_.MainForm.resources
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp_.Properties.Resources.resources
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.csproj.GenerateResource.cache
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.csproj.CoreCompileInputs.cache
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.exe
-C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.pdb

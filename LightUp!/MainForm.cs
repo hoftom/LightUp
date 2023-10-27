@@ -17,11 +17,29 @@ namespace LightUp_
 
         private EasyLevel easyLevel;
         private MediumLevel mediumLevel;
-        private HardLevel hardLevel;
+
+       /* Label helloLabel = new Label
+        {
+            Text = $"Indításhoz lépj egyet!",
+            Font = new Font("Kristen ITC", 14.25f),
+            ForeColor = Color.Black,
+            AutoSize = true,
+        };
+
+        Panel panel_Statistics = new Panel
+        {
+            Width = 300,
+            Height = 200,
+            BackColor = Color.Transparent,
+            Location = new Point(450, 215),
+            Visible = false,
+
+        };*/
 
         public MainForm()
         {
             InitializeComponent();
+
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -148,6 +166,8 @@ namespace LightUp_
             easyLevel = new EasyLevel(this);
             easyLevel.InitializeGame();
             flowLayoutPanel1.Visible = true;
+            //panel_Statistics.Visible = true;
+            //timer.Start();
 
 
         }
@@ -158,14 +178,8 @@ namespace LightUp_
             mediumLevel = new MediumLevel(this);
             mediumLevel.InitializeGame();
             flowLayoutPanel1.Visible = true;
-        }
 
-        private void btn_exp_Click(object sender, EventArgs e)
-        {
-            panel_Level.Visible = false;
-            hardLevel = new HardLevel(this);
-            hardLevel.InitializeGame();
-            flowLayoutPanel1.Visible = true;
+            //panel_Statistics.Visible = true;
         }
     }
 }

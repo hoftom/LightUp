@@ -14,8 +14,8 @@ namespace LightUp_
         public MediumLevel(MainForm form) : base(form)
         {
             
-            filePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/med.txt";
-            solvePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/med-solve.txt";
+            filePath = "C:/Users//hoffm/OneDrive/Asztali gép/projects/C#/LightUp!/Data/med.txt";
+            solvePath = "C:/Users/hoffm/OneDrive/Asztali gép/projects/C#/LightUp!/Data/med-solve.txt";
 
             gridSize = 10;
         }
