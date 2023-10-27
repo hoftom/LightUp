@@ -169,10 +169,15 @@ namespace LightUp_
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             //panel_Statistics.Visible = true;
             //timer.Start();
 =======
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            //panel_Statistics.Visible = true;
+            //timer.Start();
+>>>>>>> parent of 0519fcb (27/10)
 =======
             //panel_Statistics.Visible = true;
             //timer.Start();
@@ -195,6 +200,7 @@ namespace LightUp_
 
             //panel_Statistics.Visible = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             panel_Level.Visible = false;
             mediumLevel = new MediumLevel(this);
@@ -211,6 +217,8 @@ namespace LightUp_
 >>>>>>> parent of 5f0b405 (28/10)
 =======
             //panel_Statistics.Visible = true;
+>>>>>>> parent of 0519fcb (27/10)
+=======
 >>>>>>> parent of 0519fcb (27/10)
 =======
 >>>>>>> parent of 0519fcb (27/10)

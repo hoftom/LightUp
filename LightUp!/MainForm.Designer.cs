@@ -76,11 +76,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.panel_Menu.Location = new System.Drawing.Point(126, 131);
 =======
             this.panel_Menu.Location = new System.Drawing.Point(168, 161);
             this.panel_Menu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.panel_Menu.Location = new System.Drawing.Point(126, 131);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.panel_Menu.Location = new System.Drawing.Point(126, 131);
 >>>>>>> parent of 0519fcb (27/10)
@@ -107,11 +111,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_rules.Location = new System.Drawing.Point(62, 169);
 =======
             this.btn_rules.Location = new System.Drawing.Point(83, 208);
             this.btn_rules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_rules.Location = new System.Drawing.Point(62, 169);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.btn_rules.Location = new System.Drawing.Point(62, 169);
 >>>>>>> parent of 0519fcb (27/10)
@@ -143,11 +151,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_Exit.Location = new System.Drawing.Point(95, 288);
 =======
             this.btn_Exit.Location = new System.Drawing.Point(127, 354);
             this.btn_Exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_Exit.Location = new System.Drawing.Point(95, 288);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.btn_Exit.Location = new System.Drawing.Point(95, 288);
 >>>>>>> parent of 0519fcb (27/10)
@@ -179,11 +191,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_Start.Location = new System.Drawing.Point(62, 54);
 =======
             this.btn_Start.Location = new System.Drawing.Point(83, 66);
             this.btn_Start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_Start.Location = new System.Drawing.Point(62, 54);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.btn_Start.Location = new System.Drawing.Point(62, 54);
 >>>>>>> parent of 0519fcb (27/10)
@@ -207,11 +223,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.panel_Level.Location = new System.Drawing.Point(0, 146);
 =======
             this.panel_Level.Location = new System.Drawing.Point(0, 180);
             this.panel_Level.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.panel_Level.Location = new System.Drawing.Point(0, 146);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.panel_Level.Location = new System.Drawing.Point(0, 146);
 >>>>>>> parent of 0519fcb (27/10)
@@ -233,11 +253,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 64);
 =======
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 79);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 64);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 64);
 >>>>>>> parent of 0519fcb (27/10)
@@ -256,11 +280,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
 =======
             this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
 >>>>>>> parent of 0519fcb (27/10)
@@ -312,11 +340,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_easy.Location = new System.Drawing.Point(3, 35);
 =======
             this.btn_easy.Location = new System.Drawing.Point(4, 44);
             this.btn_easy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_easy.Location = new System.Drawing.Point(3, 35);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.btn_easy.Location = new System.Drawing.Point(3, 35);
 >>>>>>> parent of 0519fcb (27/10)
@@ -341,11 +373,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_adv.Location = new System.Drawing.Point(233, 35);
 =======
             this.btn_adv.Location = new System.Drawing.Point(311, 44);
             this.btn_adv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_adv.Location = new System.Drawing.Point(233, 35);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.btn_adv.Location = new System.Drawing.Point(233, 35);
 >>>>>>> parent of 0519fcb (27/10)
@@ -370,11 +406,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btn_exp.Location = new System.Drawing.Point(463, 35);
 =======
             this.btn_exp.Location = new System.Drawing.Point(618, 44);
             this.btn_exp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.btn_exp.Location = new System.Drawing.Point(463, 35);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.btn_exp.Location = new System.Drawing.Point(463, 35);
 >>>>>>> parent of 0519fcb (27/10)
@@ -406,11 +446,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.panel_rules.Location = new System.Drawing.Point(14, 131);
 =======
             this.panel_rules.Location = new System.Drawing.Point(19, 161);
             this.panel_rules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.panel_rules.Location = new System.Drawing.Point(14, 131);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.panel_rules.Location = new System.Drawing.Point(14, 131);
 >>>>>>> parent of 0519fcb (27/10)
@@ -456,11 +500,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.button_back.Location = new System.Drawing.Point(615, 458);
 =======
             this.button_back.Location = new System.Drawing.Point(820, 564);
             this.button_back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.button_back.Location = new System.Drawing.Point(615, 458);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.button_back.Location = new System.Drawing.Point(615, 458);
 >>>>>>> parent of 0519fcb (27/10)
@@ -486,10 +534,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(698, 532);
 =======
             this.ClientSize = new System.Drawing.Size(931, 655);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+            this.ClientSize = new System.Drawing.Size(698, 532);
+>>>>>>> parent of 0519fcb (27/10)
 =======
             this.ClientSize = new System.Drawing.Size(698, 532);
 >>>>>>> parent of 0519fcb (27/10)
@@ -505,9 +557,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 >>>>>>> parent of 5f0b405 (28/10)
+=======
+>>>>>>> parent of 0519fcb (27/10)
 =======
 >>>>>>> parent of 0519fcb (27/10)
 =======
