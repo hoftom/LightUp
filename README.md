@@ -1,5 +1,5 @@
 **LightUp! Game #**
-_Made for a university project in C#._
+_Made for a university project_
 
 Game rules: https://en.wikipedia.org/wiki/Light_Up_(puzzle)
 
