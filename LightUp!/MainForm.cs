@@ -14,7 +14,7 @@ namespace LightUp_
 {
     public partial class MainForm : Form
     {
-
+        //creating the level variables
         private EasyLevel easyLevel;
         private MediumLevel mediumLevel;
         private HardLevel hardLevel;
@@ -26,6 +26,7 @@ namespace LightUp_
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
+            //prevent user from full screen mode
             if (this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
@@ -53,6 +54,7 @@ namespace LightUp_
 
         private void button_back_Click(object sender, EventArgs e)
         {
+            //Resets the current game to the base state
             foreach (Control control in this.Controls)
             {
                 control.Visible = false;
