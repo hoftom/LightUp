@@ -127,5 +127,44 @@
   <ItemGroup>
     <None Include="Media\lightbulb-35x35.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Media\lightbulb-button-easy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Media\lightbulb-button-hard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Media\lightbulb-button-med.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\easy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\easy-solve.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\hard.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\hard-solve.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\med.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\med-solve.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

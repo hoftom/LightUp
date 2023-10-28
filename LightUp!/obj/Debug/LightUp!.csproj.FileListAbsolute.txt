@@ -18,3 +18,9 @@ C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.csproj.Gene
 C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.csproj.CoreCompileInputs.cache
 C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.exe
 C:\Users\Tamá$\Documents\GitHub\LightUp\LightUp!\obj\Debug\LightUp!.pdb
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\Data\easy.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\Data\easy-solve.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\Data\hard.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\Data\hard-solve.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\Data\med.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Debug\Data\med-solve.txt

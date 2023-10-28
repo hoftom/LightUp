@@ -1,7 +1,10 @@
-﻿using System;
+﻿using LightUp_.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,13 +16,19 @@ namespace LightUp_
     {
         public MediumLevel(MainForm form) : base(form)
         {
-            
-            filePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/med.txt";
-            solvePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/med-solve.txt";
+
+            var dirPath = Assembly.GetExecutingAssembly().Location;
+            dirPath = Path.GetDirectoryName(dirPath);
+
+            filePath = Path.GetFullPath(Path.Combine(dirPath, "data/med.txt"));
+            solvePath = Path.GetFullPath(Path.Combine(dirPath, "data/med-solve.txt"));
 
             gridSize = 10;
         }
-
+        protected override Image GetButtonImage
+        {
+            get { return Resources.lightbulb_button_med; }
+        }
         protected override int GetPanelWidth
         {
             get { return 380; }

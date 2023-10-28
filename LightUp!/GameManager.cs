@@ -30,6 +30,8 @@ namespace LightUp_
         protected virtual int GetButtonWidth { get; }
         protected virtual int GetButtonHeight { get; }
 
+        protected virtual Image GetButtonImage { get; }
+
 
         public string solvePath;
         public string filePath;
@@ -47,6 +49,7 @@ namespace LightUp_
         private DateTime startTime;
 
         private Label stepLabel;
+        
 
 
         private MainForm form;
@@ -69,7 +72,6 @@ namespace LightUp_
 
         public void InitializeGame()
         {
-
             gridButtons = new Button[gridSize, gridSize];
             gameboard = new int[gridSize, gridSize];
             buttonState = new bool[gridSize, gridSize];
@@ -90,31 +92,32 @@ namespace LightUp_
             form.Controls.Add(flowLayoutPanel1);
 
             timer = new Timer();
-            timer.Interval = 1000;
             timer.Tick += Timer_Tick;
+            
 
             Panel statisticsPanel = new Panel
             {
                 BackColor = Color.Transparent,
                 Size = new Size(200, 200),
-                Location = new Point(430, 180),
+                Location = new Point(450, 250),
             };
             timerLabel = new Label
             {
-                Text = $"Eltelt idő: ",
-                Font = new Font("Times New Roman", 14),
+                Text = $"Eltelt idő: 00:00",
+                Font = new Font("Kristen ITC", 14),
                 ForeColor = Color.Black,
                 Size = new Size(200, 25),
                 Location = new Point(5,0),
             };
             statisticsPanel.Controls.Add(timerLabel);
             startTime = DateTime.Now;
+
             timer.Start();
 
             stepLabel = new Label
             {
                 Text = $"Lépések: {stepsCounter}",
-                Font = new Font("Times New Roman", 14),
+                Font = new Font("Kristen ITC", 14),
                 ForeColor = Color.Black,
                 Size = new Size(200, 50),
                 Location = new Point(5, 50)
@@ -193,8 +196,8 @@ namespace LightUp_
             {
                 if (gameboard[r, col] > -1) break;
                 gameboard[r, col] -= 1;
-                if (gameboard[r, col] < -50) gridButtons[r, col].BackColor = Color.Red;
-                gridButtons[r, col].BackColor = Color.Yellow;
+                if (gameboard[r, col] < -51) gridButtons[r, col].BackColor = Color.Red;
+                else gridButtons[r, col].BackColor = Color.Yellow;
                 //gridButtons[r, col].Text = gameboard[r, col].ToString();
             }
 
@@ -203,8 +206,8 @@ namespace LightUp_
             {
                 if (gameboard[r, col] > -1) break;
                 gameboard[r, col] -= 1;
-                if (gameboard[r, col] < -50) gridButtons[r, col].BackColor = Color.Red;
-                gridButtons[r, col].BackColor = Color.Yellow;
+                if (gameboard[r, col] < -51) gridButtons[r, col].BackColor = Color.Red;
+                else gridButtons[r, col].BackColor = Color.Yellow;
                 //gridButtons[r, col].Text = gameboard[r, col].ToString();
             }
 
@@ -212,7 +215,8 @@ namespace LightUp_
             {
                 if (gameboard[row, c] > -1) break;
                 gameboard[row, c] -= 1;
-                gridButtons[row, c].BackColor = Color.Yellow;
+                if (gameboard[row, c] < -51) gridButtons[row, c].BackColor = Color.Red;
+                else gridButtons[row, c].BackColor = Color.Yellow;
                 //gridButtons[row, c].Text = gameboard[row, c].ToString();
             }
 
@@ -221,7 +225,8 @@ namespace LightUp_
             {
                 if (gameboard[row, c] > -1) break;
                 gameboard[row, c] -= 1;
-                gridButtons[row, c].BackColor = Color.Yellow;
+                if (gameboard[row, c] < -51) gridButtons[row, c].BackColor = Color.Red;
+                else gridButtons[row, c].BackColor = Color.Yellow;
                 //gridButtons[row, c].Text = gameboard[row, c].ToString();
             }
 
@@ -233,7 +238,9 @@ namespace LightUp_
                 if (gameboard[r, col] > -1) break;
                 gameboard[r, col] += 1;
                 //gridButtons[r, col].Text = gameboard[r, col].ToString();
-                if (gameboard[r, col] == -1) gridButtons[r, col].BackColor = Color.White;
+                if (gameboard[r, col] < -51) gridButtons[r, col].BackColor = Color.Red;
+                else if (gameboard[r, col] < -1) gridButtons[r, col].BackColor = Color.Yellow;
+                else gridButtons[r, col].BackColor = Color.White;
             }
 
 
@@ -242,7 +249,9 @@ namespace LightUp_
                 if (gameboard[r, col] > -1) break;
                 gameboard[r, col] += 1;
                 //gridButtons[r, col].Text = gameboard[r, col].ToString();
-                if (gameboard[r, col] == -1) gridButtons[r, col].BackColor = Color.White;
+                if (gameboard[r, col] < -51) gridButtons[r, col].BackColor = Color.Red;
+                else if (gameboard[r, col] < -1 ) gridButtons[r, col].BackColor = Color.Yellow;
+                else gridButtons[r, col].BackColor = Color.White;
             }
 
 
@@ -251,7 +260,9 @@ namespace LightUp_
                 if (gameboard[row, c] > -1) break;
                 gameboard[row, c] += 1;
                 //gridButtons[row, c].Text = gameboard[row, c].ToString();
-                if (gameboard[row, c] == -1) gridButtons[row, c].BackColor = Color.White;
+                if (gameboard[row, c] < -51) gridButtons[row, c].BackColor = Color.Red;
+                else if (gameboard[row, c] < -1) gridButtons[row, c].BackColor = Color.Yellow;
+                else gridButtons[row, c].BackColor = Color.White;
             }
 
 
@@ -260,20 +271,25 @@ namespace LightUp_
                 if (gameboard[row, c] > -1) break;
                 gameboard[row, c] += 1;
                 //gridButtons[row, c].Text = gameboard[row, c].ToString();
-                if (gameboard[row, c] == -1) gridButtons[row, c].BackColor = Color.White;
+                if (gameboard[row, c] < -51) gridButtons[row, c].BackColor = Color.Red;
+                else if (gameboard[row, c] < -1) gridButtons[row, c].BackColor = Color.Yellow;
+                else gridButtons[row, c].BackColor = Color.White;
             }
 
         }
+
         private void CheckAdjacentCells(int row, int col)
         {
             if (gridButtons[row, col].BackgroundImage == null && stepsCounter > 0)
             {
-                gridButtons[row, col].BackgroundImage = Resources.lightbulb_on;
+                gridButtons[row, col].BackgroundImageLayout = ImageLayout.Center;
+                gridButtons[row, col].BackgroundImage = GetButtonImage;
             }
             else
             {
                 gridButtons[row, col].BackgroundImage = null;
             }
+
             if (gameboard[row, col] <= -1 && gameboard[row, col] > light_value)
             {
                 if (stepsCounter > 0)
@@ -281,7 +297,11 @@ namespace LightUp_
                     IlluminateAdjacentCells(row, col);
                     gameboard[row, col] += light_value;
                     //gridButtons[row, col].Text = gameboard[row, col].ToString();
-                    gridButtons[row, col].BackColor = Color.Yellow;
+                    if (gameboard[row, col] < -51)
+                    {
+                        gridButtons[row, col].BackColor = Color.Red;
+                    }
+                    else gridButtons[row, col].BackColor = Color.Yellow;
 
                     stepsCounter--;
                 }
@@ -291,7 +311,8 @@ namespace LightUp_
                 UnIlluminateAdjacentCells(row, col);
                 gameboard[row, col] -= light_value;
                 //gridButtons[row, col].Text = gameboard[row, col].ToString();
-                if (gameboard[row, col] == -1) gridButtons[row, col].BackColor = Color.White;
+                if (gameboard[row, col] < -1) gridButtons[row, col].BackColor = Color.Yellow;
+                else gridButtons[row, col].BackColor = Color.White;
 
                 stepsCounter++;
             }
@@ -309,7 +330,60 @@ namespace LightUp_
             }
             if (good)
             {
+                timer.Stop();
+                for (int row = 0; row < gridSize; row++)
+                {
+                    for (int col = 0; col < gridSize; col++)
+                    {
+                        if (gameboard[row, col] < 0) gridButtons[row, col].Enabled = false;
+                    }
+                }
+
+                Panel SolvedPanel = new Panel
+                {
+                    Location = new Point(240, 200),
+                    BackColor = Color.Gray,
+                    Size = new Size(209,133)
+                };
+
+                Label SolvedLabel = new Label
+                {
+                    Text = "Helyes megoldás!",
+                    Location = new Point(22, 34),
+                    Size = new Size(167, 27),
+                    Font = new Font("Kristen ITC", 14),
+                };
+                SolvedPanel.Controls.Add(SolvedLabel);
+
+                PictureBox picture = new PictureBox
+                {
+                    Image = Resources.lightbulb_button_easy,
+                    Location = new Point(92,3),
+                    Size = new Size(24,42)
+                };
+                SolvedPanel.Controls.Add(picture);
+
+                
+
+                Button NewgameButton = new Button
+                {
+                    Text = "Új játék",
+                    Location = new Point(55, 74),
+                    Size = new Size(100, 43)
+                };
+                SolvedPanel.Controls.Add(NewgameButton);
+
+                form.Controls.Add(SolvedPanel);
+                SolvedPanel.BringToFront();
+
+                NewgameButton.Click += NewgameButton_Click;
+                
             }
+        }
+        private void NewgameButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ExecutablePath);
+            Application.Exit();
         }
 
         private List<FileData> LoadProblemData(string filePath)

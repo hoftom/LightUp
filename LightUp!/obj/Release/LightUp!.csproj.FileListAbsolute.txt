@@ -1,0 +1,16 @@
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\Data\easy.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\Data\easy-solve.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\Data\hard.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\Data\hard-solve.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\Data\med.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\Data\med-solve.txt
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\LightUp!.exe.config
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\LightUp!.exe
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\bin\Release\LightUp!.pdb
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Release\LightUp!.csproj.AssemblyReference.cache
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Release\LightUp_.MainForm.resources
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Release\LightUp_.Properties.Resources.resources
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Release\LightUp!.csproj.GenerateResource.cache
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Release\LightUp!.csproj.CoreCompileInputs.cache
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Release\LightUp!.exe
+C:\Users\hoffm\OneDrive\Asztali gép\projects\C#\LightUp!\LightUp!\obj\Release\LightUp!.pdb

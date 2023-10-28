@@ -1,8 +1,10 @@
-﻿using System;
+﻿using LightUp_.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,13 +15,20 @@ namespace LightUp_
     {
         public EasyLevel(MainForm form) : base(form)
         {
-            string mainDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            solvePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/easy-solve.txt";
-            filePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/easy.txt";
+            var dirPath = Assembly.GetExecutingAssembly().Location;
+            dirPath = Path.GetDirectoryName(dirPath);
+
+            filePath = Path.GetFullPath(Path.Combine(dirPath, "data/easy.txt"));
+            solvePath = Path.GetFullPath(Path.Combine(dirPath, "data/easy-solve.txt"));
+
 
             gridSize = 7;
         }
 
+        protected override Image GetButtonImage
+        {
+            get { return Resources.lightbulb_button_easy; }
+        }
         protected override int GetPanelWidth
         {
             get { return 300; }

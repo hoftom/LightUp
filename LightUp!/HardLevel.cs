@@ -1,7 +1,10 @@
-﻿using System;
+﻿using LightUp_.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static LightUp_.GameManager;
@@ -13,16 +16,22 @@ namespace LightUp_
         public HardLevel(MainForm form) : base(form)
         {
 
-            filePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/hard.txt";
-            solvePath = "C:/Users/Tamá$/Documents/GitHub/LightUp/LightUp!/Data/hard-solve.txt";
+            var dirPath = Assembly.GetExecutingAssembly().Location;
+            dirPath = Path.GetDirectoryName(dirPath);
+
+            filePath = Path.GetFullPath(Path.Combine(dirPath, "data/hard.txt"));
+            solvePath = Path.GetFullPath(Path.Combine(dirPath, "data/hard-solve.txt"));
 
             gridSize = 14;
         }
-
+        protected override Image GetButtonImage
+        {
+            get { return Resources.lightbulb_button_hard; }
+        }
         protected override int GetPanelWidth
         {
             get { return 400; }
-        }
+        }   
         protected override int GetPanelHeight
         {
             get { return 560; }

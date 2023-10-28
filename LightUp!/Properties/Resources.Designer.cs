@@ -161,11 +161,173 @@ namespace LightUp_.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1;0;1
+        ///0;5;3
+        ///2;2;1
+        ///2;4;1
+        ///4;2;100
+        ///4;4;0
+        ///6;1;0
+        ///5;6;0.
+        /// </summary>
+        internal static string easy {
+            get {
+                return ResourceManager.GetString("easy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0;4
+        ///0;6
+        ///1;5
+        ///2;0
+        ///2;3
+        ///3;1
+        ///5;2
+        ///6;4.
+        /// </summary>
+        internal static string easy_solve {
+            get {
+                return ResourceManager.GetString("easy_solve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0;3;2
+        ///0;7;100
+        ///0;11;100
+        ///0;13;100
+        ///1;2;2
+        ///1;4;100
+        ///2;0;1
+        ///2;8;2
+        ///2;12;0
+        ///2;13;100
+        ///3;0;100
+        ///3;2;0
+        ///3;7;100
+        ///3;12;1
+        ///4;5;1
+        ///4;8;100
+        ///4;9;2
+        ///4;12;100
+        ///5;0;100
+        ///5;5;1
+        ///5;7;3
+        ///6;2;1
+        ///6;7;100
+        ///6;10;2
+        ///7;3;100
+        ///7;6;1
+        ///7;11;2
+        ///8;6;100
+        ///8;8;0
+        ///8;13;1
+        ///9;1;0
+        ///9;4;100
+        ///9;5;1
+        ///9;8;0
+        ///10;1;1
+        ///10;6;1
+        ///10;11;0
+        ///10;13;100
+        ///11;0;100
+        ///11;1;1
+        ///11;5;100
+        ///11;13;0
+        ///12;9;2
+        ///12;11;2
+        ///13;0;100
+        ///13;2;2
+        ///13;6;100
+        ///13;10;100
+        ///.
+        /// </summary>
+        internal static string hard {
+            get {
+                return ResourceManager.GetString("hard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0;2
+        ///0;5
+        ///0;12
+        ///1;0
+        ///1;3
+        ///1;8
+        ///2;7
+        ///3;9
+        ///3;13
+        ///4;4
+        ///4;7
+        ///4;10
+        ///5;2
+        ///5;6
+        ///5;8
+        ///6;9
+        ///6;11
+        ///7;1
+        ///7;5
+        ///8;11
+        ///9;6
+        ///9;13
+        ///10;0
+        ///10;4
+        ///11;2
+        ///11;8
+        ///12;7
+        ///12;10
+        ///12;12
+        ///13;1
+        ///13;3
+        ///13;9
+        ///13;13
+        ///
+        ///.
+        /// </summary>
+        internal static string hard_solve {
+            get {
+                return ResourceManager.GetString("hard_solve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap lightbulb_35x35 {
             get {
                 object obj = ResourceManager.GetObject("lightbulb_35x35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightbulb_button_easy {
+            get {
+                object obj = ResourceManager.GetObject("lightbulb_button_easy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightbulb_button_hard {
+            get {
+                object obj = ResourceManager.GetObject("lightbulb_button_hard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lightbulb_button_med {
+            get {
+                object obj = ResourceManager.GetObject("lightbulb_button_med", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -187,6 +349,58 @@ namespace LightUp_.Properties {
             get {
                 object obj = ResourceManager.GetObject("lightbulb_on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0;1;100
+        ///0;2;1
+        ///1;0;100
+        ///1;3;100
+        ///1;7;100
+        ///2;6;2
+        ///2;8;0
+        ///3;0;0
+        ///4;4;100
+        ///4;6;0
+        ///5;3;1
+        ///5;5;100
+        ///6;9;2
+        ///7;1;1
+        ///7;3;100
+        ///8;2;3
+        ///8;6;1
+        ///8;9;1
+        ///9;7;0
+        ///9;8;100.
+        /// </summary>
+        internal static string med {
+            get {
+                return ResourceManager.GetString("med", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0;0
+        ///0;8
+        ///1;2
+        ///1;6
+        ///2;5
+        ///3;7
+        ///4;1
+        ///5;0
+        ///5;4
+        ///5;9
+        ///6;8
+        ///7;6
+        ///8;1
+        ///8;3
+        ///9;2
+        ///9;9.
+        /// </summary>
+        internal static string med_solve {
+            get {
+                return ResourceManager.GetString("med_solve", resourceCulture);
             }
         }
     }

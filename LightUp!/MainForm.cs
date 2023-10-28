@@ -53,11 +53,12 @@ namespace LightUp_
 
         private void button_back_Click(object sender, EventArgs e)
         {
+            foreach (Control control in this.Controls)
+            {
+                control.Visible = false;
+            }
             panel_Menu.Visible = true;
-            panel_rules.Visible = false;
-            panel_Level.Visible = false;
-            button_back.Visible = false;
-            flowLayoutPanel1.Visible = false;
+            label_main.Visible = true;
 
             if (easyLevel != null)
             {
