@@ -19,8 +19,8 @@ namespace LightUp_
             var dirPath = Assembly.GetExecutingAssembly().Location;
             dirPath = Path.GetDirectoryName(dirPath);
 
-            filePath = Path.GetFullPath(Path.Combine(dirPath, "data/hard.txt"));
-            solvePath = Path.GetFullPath(Path.Combine(dirPath, "data/hard-solve.txt"));
+            filePath = "data/hard.txt";
+            solvePath = "data/hard-solve.txt";
 
             gridSize = 14;
         }

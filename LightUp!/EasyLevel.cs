@@ -15,11 +15,10 @@ namespace LightUp_
     {
         public EasyLevel(MainForm form) : base(form)
         {
-            var dirPath = Assembly.GetExecutingAssembly().Location;
-            dirPath = Path.GetDirectoryName(dirPath);
 
-            filePath = Path.GetFullPath(Path.Combine(dirPath, "data/easy.txt"));
-            solvePath = Path.GetFullPath(Path.Combine(dirPath, "data/easy-solve.txt"));
+
+            filePath = "data/easy.txt";
+            solvePath = "data/easy-solve.txt";
 
 
             gridSize = 7;

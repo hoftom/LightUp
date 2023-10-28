@@ -17,11 +17,8 @@ namespace LightUp_
         public MediumLevel(MainForm form) : base(form)
         {
 
-            var dirPath = Assembly.GetExecutingAssembly().Location;
-            dirPath = Path.GetDirectoryName(dirPath);
-
-            filePath = Path.GetFullPath(Path.Combine(dirPath, "data/med.txt"));
-            solvePath = Path.GetFullPath(Path.Combine(dirPath, "data/med-solve.txt"));
+            filePath = "data/med.txt";
+            solvePath = "data/med-solve.txt";
 
             gridSize = 10;
         }
