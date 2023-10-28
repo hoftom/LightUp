@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LightUp_.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +42,12 @@ namespace LightUp_
         private int stepsCounter;
         private int light_value = -50;
 
+        private Timer timer;
+        private Label timerLabel;
+        private DateTime startTime;
+
+        private Label stepLabel;
+
 
         private MainForm form;
         private List<FileData> SolveDataList;
@@ -54,7 +62,9 @@ namespace LightUp_
 
         public GameManager(MainForm form)
         {
-            this.form = form;        
+            this.form = form;
+
+
         }
 
         public void InitializeGame()
@@ -73,12 +83,46 @@ namespace LightUp_
                 FlowDirection = FlowDirection.LeftToRight,
                 BackColor = Color.Transparent,
             };
-
             SetupGameboardLogic(flowLayoutPanel1);
 
             SolveDataList = LoadSolutionData(solvePath);
 
             form.Controls.Add(flowLayoutPanel1);
+
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += Timer_Tick;
+
+            Panel statisticsPanel = new Panel
+            {
+                BackColor = Color.Transparent,
+                Size = new Size(200, 200),
+                Location = new Point(430, 180),
+            };
+            timerLabel = new Label
+            {
+                Text = $"Eltelt idő: ",
+                Font = new Font("Times New Roman", 14),
+                ForeColor = Color.Black,
+                Size = new Size(200, 25),
+                Location = new Point(5,0),
+            };
+            statisticsPanel.Controls.Add(timerLabel);
+            startTime = DateTime.Now;
+            timer.Start();
+
+            stepLabel = new Label
+            {
+                Text = $"Lépések: {stepsCounter}",
+                Font = new Font("Times New Roman", 14),
+                ForeColor = Color.Black,
+                Size = new Size(200, 50),
+                Location = new Point(5, 50)
+            };
+            statisticsPanel.Controls.Add(stepLabel);
+
+            form.Controls.Add(statisticsPanel);
+
         }
 
         public void CellButtonClick(object sender, EventArgs e)
@@ -90,8 +134,10 @@ namespace LightUp_
             int col = cellCoordinates.Item2;
 
             CheckAdjacentCells(row, col);
-
             CheckGoodResult(SolveDataList);
+
+            stepLabel.Text = $"Lépések: {stepsCounter}";
+
         }
 
         protected virtual void SetupGameboardLogic(FlowLayoutPanel flowLayoutPanel)
@@ -107,7 +153,7 @@ namespace LightUp_
                         Width = GetButtonWidth,
                         Height = GetButtonHeight,
                         Tag = new Tuple<int, int>(row, col),
-                        Text = gameboard[row, col].ToString(),
+                        //Text = gameboard[row, col].ToString(),
                     };
                     gridButtons[row, col].Click += CellButtonClick;
 
@@ -147,8 +193,9 @@ namespace LightUp_
             {
                 if (gameboard[r, col] > -1) break;
                 gameboard[r, col] -= 1;
+                if (gameboard[r, col] < -50) gridButtons[r, col].BackColor = Color.Red;
                 gridButtons[r, col].BackColor = Color.Yellow;
-                gridButtons[r, col].Text = gameboard[r, col].ToString();
+                //gridButtons[r, col].Text = gameboard[r, col].ToString();
             }
 
 
@@ -156,8 +203,9 @@ namespace LightUp_
             {
                 if (gameboard[r, col] > -1) break;
                 gameboard[r, col] -= 1;
+                if (gameboard[r, col] < -50) gridButtons[r, col].BackColor = Color.Red;
                 gridButtons[r, col].BackColor = Color.Yellow;
-                gridButtons[r, col].Text = gameboard[r, col].ToString();
+                //gridButtons[r, col].Text = gameboard[r, col].ToString();
             }
 
             for (int c = col - 1; c >= 0; c--)
@@ -165,7 +213,7 @@ namespace LightUp_
                 if (gameboard[row, c] > -1) break;
                 gameboard[row, c] -= 1;
                 gridButtons[row, c].BackColor = Color.Yellow;
-                gridButtons[row, c].Text = gameboard[row, c].ToString();
+                //gridButtons[row, c].Text = gameboard[row, c].ToString();
             }
 
 
@@ -174,7 +222,7 @@ namespace LightUp_
                 if (gameboard[row, c] > -1) break;
                 gameboard[row, c] -= 1;
                 gridButtons[row, c].BackColor = Color.Yellow;
-                gridButtons[row, c].Text = gameboard[row, c].ToString();
+                //gridButtons[row, c].Text = gameboard[row, c].ToString();
             }
 
         }
@@ -184,7 +232,7 @@ namespace LightUp_
             {
                 if (gameboard[r, col] > -1) break;
                 gameboard[r, col] += 1;
-                gridButtons[r, col].Text = gameboard[r, col].ToString();
+                //gridButtons[r, col].Text = gameboard[r, col].ToString();
                 if (gameboard[r, col] == -1) gridButtons[r, col].BackColor = Color.White;
             }
 
@@ -193,7 +241,7 @@ namespace LightUp_
             {
                 if (gameboard[r, col] > -1) break;
                 gameboard[r, col] += 1;
-                gridButtons[r, col].Text = gameboard[r, col].ToString();
+                //gridButtons[r, col].Text = gameboard[r, col].ToString();
                 if (gameboard[r, col] == -1) gridButtons[r, col].BackColor = Color.White;
             }
 
@@ -202,7 +250,7 @@ namespace LightUp_
             {
                 if (gameboard[row, c] > -1) break;
                 gameboard[row, c] += 1;
-                gridButtons[row, c].Text = gameboard[row, c].ToString();
+                //gridButtons[row, c].Text = gameboard[row, c].ToString();
                 if (gameboard[row, c] == -1) gridButtons[row, c].BackColor = Color.White;
             }
 
@@ -211,20 +259,28 @@ namespace LightUp_
             {
                 if (gameboard[row, c] > -1) break;
                 gameboard[row, c] += 1;
-                gridButtons[row, c].Text = gameboard[row, c].ToString();
+                //gridButtons[row, c].Text = gameboard[row, c].ToString();
                 if (gameboard[row, c] == -1) gridButtons[row, c].BackColor = Color.White;
             }
 
         }
         private void CheckAdjacentCells(int row, int col)
         {
+            if (gridButtons[row, col].BackgroundImage == null && stepsCounter > 0)
+            {
+                gridButtons[row, col].BackgroundImage = Resources.lightbulb_on;
+            }
+            else
+            {
+                gridButtons[row, col].BackgroundImage = null;
+            }
             if (gameboard[row, col] <= -1 && gameboard[row, col] > light_value)
             {
                 if (stepsCounter > 0)
                 {
                     IlluminateAdjacentCells(row, col);
                     gameboard[row, col] += light_value;
-                    gridButtons[row, col].Text = gameboard[row, col].ToString();
+                    //gridButtons[row, col].Text = gameboard[row, col].ToString();
                     gridButtons[row, col].BackColor = Color.Yellow;
 
                     stepsCounter--;
@@ -234,7 +290,7 @@ namespace LightUp_
             {
                 UnIlluminateAdjacentCells(row, col);
                 gameboard[row, col] -= light_value;
-                gridButtons[row, col].Text = gameboard[row, col].ToString();
+                //gridButtons[row, col].Text = gameboard[row, col].ToString();
                 if (gameboard[row, col] == -1) gridButtons[row, col].BackColor = Color.White;
 
                 stepsCounter++;
@@ -253,7 +309,6 @@ namespace LightUp_
             }
             if (good)
             {
-                MessageBox.Show("Helyes kitöltés!");
             }
         }
 
@@ -318,6 +373,12 @@ namespace LightUp_
             }
 
             return SolveDataList;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan elapsedTime = DateTime.Now - startTime;
+            timerLabel.Text = $"Eltelt idő: {elapsedTime.ToString(@"mm\:ss")}";
         }
     }
 }

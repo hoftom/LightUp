@@ -57,6 +57,20 @@ namespace LightUp_
             panel_rules.Visible = false;
             panel_Level.Visible = false;
             button_back.Visible = false;
+            flowLayoutPanel1.Visible = false;
+
+            if (easyLevel != null)
+            {
+                easyLevel = new EasyLevel(this);
+            }
+            else if (mediumLevel != null)
+            {
+                mediumLevel = new MediumLevel(this);
+            }else if (hardLevel != null)
+            {
+                hardLevel = new HardLevel(this);    
+            }
+
         }
 
         private void btn_Start_MouseEnter(object sender, EventArgs e)
@@ -74,7 +88,7 @@ namespace LightUp_
         private void btn_rules_MouseEnter(object sender, EventArgs e)
         {
             btn_rules.ForeColor = Color.Yellow;
-            btn_rules.Image = Properties.Resources.lightbulb_rules;
+            btn_rules.Image = Properties.Resources.lightbulb_on;
         }
 
         private void btn_rules_MouseLeave(object sender, EventArgs e)
@@ -86,7 +100,7 @@ namespace LightUp_
         private void btn_Exit_MouseEnter(object sender, EventArgs e)
         {
             btn_Exit.ForeColor = Color.Yellow;
-            btn_Exit.Image = Properties.Resources.lightbulb_logout;
+            btn_Exit.Image = Properties.Resources.lightbulb_on;
         }
 
         private void btn_Exit_MouseLeave(object sender, EventArgs e)
@@ -109,6 +123,7 @@ namespace LightUp_
         {
             btn_easy.Image = Properties.Resources._7x7_selected;
             label_easy.ForeColor = Color.Yellow;
+            
         }
 
         private void btn_easy_MouseLeave(object sender, EventArgs e)
@@ -144,7 +159,6 @@ namespace LightUp_
         private void btn_easy_Click(object sender, EventArgs e)
         {
             panel_Level.Visible = false;
-
             easyLevel = new EasyLevel(this);
             easyLevel.InitializeGame();
             flowLayoutPanel1.Visible = true;
