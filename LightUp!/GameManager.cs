@@ -145,7 +145,7 @@ namespace LightUp_
 
         }
 
-        public void CellButtonClick(object sender, EventArgs e)
+        protected void CellButtonClick(object sender, EventArgs e)
         {
             //Determining the index of a selected button
             Button clickedButton = (Button)sender;

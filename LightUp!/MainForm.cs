@@ -54,7 +54,7 @@ namespace LightUp_
 
         private void button_back_Click(object sender, EventArgs e)
         {
-            //Resets the current game to the base state
+            //Reset the current game to the base state
             foreach (Control control in this.Controls)
             {
                 control.Visible = false;

@@ -16,14 +16,16 @@ namespace LightUp_
         public EasyLevel(MainForm form) : base(form)
         {
 
-
+            //Sets the access path
             filePath = "data/easy.txt";
             solvePath = "data/easy-solve.txt";
 
-
+            //Sets the number of columns and rows
             gridSize = 7;
         }
 
+        #region Adjusts the width/height and position of the game board
+        //Sets the pixel value of the button light
         protected override Image GetButtonImage
         {
             get { return Resources.lightbulb_button_easy; }
@@ -40,8 +42,9 @@ namespace LightUp_
         {
             get { return new Point(126, 170); }
         }
+        #endregion
 
-
+        #region Adjusts the size of the buttons on the game board
         protected override int GetButtonWidth
         {
             get { return 35; }
@@ -50,6 +53,7 @@ namespace LightUp_
         {
             get { return 35; }
         }
+        #endregion
 
     }
 }
